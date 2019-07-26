@@ -15,14 +15,14 @@ def hello():
     data=r_json["data"]
     cert=data["cert"]
     key=data["key"]
-    cert2 = '-----BEGIN CERTIFICATE-----'
-    key2 = '-----BEGIN RSA PRIVATE KEY-----'
+    cert2 = '-----BEGIN CERTIFICATE-----\n'
+    key2 = '-----BEGIN RSA PRIVATE KEY-----\n'
     check = 0
     check2 = 0
     for line in cert.split():
         if line == "CERTIFICATE-----":
             if check == 1:
-                cert2 += " CERTIFICATE-----"
+                cert2 += " CERTIFICATE-----\n"
             check = 1
             continue
         if check == 1:
@@ -35,7 +35,7 @@ def hello():
         if line == "-----END":
             check2 = 2
             key2 += '\n'
-            key2 += "-----END RSA PRIVATE KEY-----"
+            key2 += "-----END RSA PRIVATE KEY-----\n"
             continue
         if check2 == 1:
             key2 += '\n'
