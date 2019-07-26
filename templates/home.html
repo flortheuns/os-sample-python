@@ -1,8 +1,8 @@
 <html>
 <head></head>
 <body>Your certificate is:<br>
-    {{ cert }}<br>
+    {{cert|safe}}<br>
     Your private key is:<br>
-    {{key}}
+    {{key|safe}}
 </body>
 </html>
