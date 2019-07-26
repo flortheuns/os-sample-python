@@ -7,7 +7,7 @@ application = Flask(__name__)
 def hello():
     
 
-    url='https://vault-hashicorp-vault.192.168.98.58.nip.io/v1/secret/example'
+    url='https://vault-hashicorp-vault.172.17.155.108.nip.io/v1/secret/example'
     token ='5AElSCMsMzdpIFbA1l1uW1yC'
     headers={'X-Vault-Token': token}
     r=requests.get(url, headers=headers, verify=False)
