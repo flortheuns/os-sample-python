@@ -11,12 +11,14 @@ def hello():
     token ='5AElSCMsMzdpIFbA1l1uW1yC'
     headers={'X-Vault-Token': token}
     r=requests.get(url, headers=headers, verify=False)
-    r_json=r.json()
-    data=r_json["data"]
-    cert=data["cert"]
-    key=data["key"]
-    cert=cert.dumps()
-    key=key.dumps()
+    cert = r
+    key = " "
+    # r_json=r.json()
+    # data=r_json["data"]
+    # cert=data["cert"]
+    # key=data["key"]
+    # cert=cert.dumps()
+    # key=key.dumps()
     rendered = render_template('home.html', \
         cert = cert, \
         key = key)
