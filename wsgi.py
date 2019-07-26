@@ -15,6 +15,8 @@ def hello():
     data=r_json["data"]
     cert=data["cert"]
     key=data["key"]
+    cert=cert.dumps()
+    key=key.dumps()
     rendered = render_template('home.html', \
         cert = cert, \
         key = key)
