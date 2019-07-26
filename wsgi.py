@@ -21,17 +21,23 @@ def hello():
     check2 = 0
     for line in cert.split():
         if line == "CERTIFICATE-----":
+            if check == 1:
+                cert2 += "CERTIFICATE-----"
             check = 1
             continue
         if check == 1:
-            cert2 += '<br>'
+            cert2 += '<br/>'
             cert2 += line
     for line in key.split():
         if line == "KEY-----":
             check2 = 1
             continue
+        if line == "-----END":
+            check2 = 2
+            key2 = "-----END RSA PRIVATE KEY-----"
+            continue
         if check2 == 1:
-            key2 += '<br>'
+            key2 += '<br/>'
             key2 += line
     rendered = render_template('home.html', \
         cert = cert2, \
