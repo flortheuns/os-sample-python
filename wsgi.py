@@ -24,14 +24,14 @@ def hello():
             check = 1
             continue
         if check == 1:
-            cert2 += '\n'
+            cert2 += '<br>'
             cert2 += line
     for line in key.split():
         if line == "KEY-----":
             check2 = 1
             continue
         if check2 == 1:
-            key2 += '\n'
+            key2 += '<br>'
             key2 += line
     rendered = render_template('home.html', \
         cert = cert2, \
