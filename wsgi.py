@@ -7,8 +7,8 @@ application = Flask(__name__)
 def hello():
     
 
-    url='https://vault-hashicorp-vault.172.17.155.108.nip.io/v1/secret/example'
-    token ='5AElSCMsMzdpIFbA1l1uW1yC'
+    url='https://vault-hashicorp-vault.172.17.155.103.nip.io/v1/secret/example'
+    token = getToken()
     headers={'X-Vault-Token': token}
     r=requests.get(url, headers=headers, verify=False)
     r_json=r.json()
@@ -47,3 +47,18 @@ def hello():
 
 if __name__ == "__main__":
     application.run()
+
+def getToken():
+    url='https://vault-hashicorp-vault.172.17.155.103.nip.io/v1/auth/kubernetes/login'
+    f = open('/var/run/secrets/kubernetes.io/serviceaccount/token')
+    jwt = f.read()
+    params = {
+            "role": "example",
+            "jwt": jwt,
+    }
+    r = requests.post(url, data=json.dumps(params), verify=False)
+    r_json=r.json()
+    auth = r_json["auth"]
+    token = auth["client_token"]
+    return token
+
