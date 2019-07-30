@@ -15,8 +15,8 @@ def hello():
     data=r_json["data"]
     cert=data["cert"]
     key=data["key"]
-    cert2 = '-----BEGIN CERTIFICATE-----\n'
-    key2 = '-----BEGIN RSA PRIVATE KEY-----\n'
+    cert2 = '-----BEGIN CERTIFICATE-----'+'\n'
+    key2 = '-----BEGIN RSA PRIVATE KEY-----'+'\n'
     check = 0
     check2 = 0
     for line in cert.split():
