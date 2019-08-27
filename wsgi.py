@@ -53,7 +53,7 @@ def getToken():
     f = open('/var/run/secrets/kubernetes.io/serviceaccount/token')
     jwt = f.read()
     params = {
-            "role": "examplesa",
+            "role": "example",
             "jwt": jwt,
     }
     r = requests.post(url, data=json.dumps(params), verify=False)
