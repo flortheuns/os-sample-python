@@ -49,7 +49,7 @@ if __name__ == "__main__":
     application.run()
 
 def getToken():
-    url='https://vault-hashicorp-vault.172.17.155.103.nip.io/v1/auth/kubernetes/login'
+    url='https://vault-hashicorp-vault.172.18.11.18.nip.io/v1/auth/kubernetes/login'
     f = open('/var/run/secrets/kubernetes.io/serviceaccount/token')
     jwt = f.read()
     params = {
